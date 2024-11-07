@@ -1,4 +1,4 @@
-### VARIABLES ###
+#### VARIABLES ####
 
 Declaramos una variable de la siguiente manera:
 
@@ -37,7 +37,7 @@ El paquete fmt se utiliza para utilizar el método PrintIn.
 !! Cuando se usan los dos puntos con el signo igual, la variable que se está declarando tiene que ser una nueva. Si usa dos puntos con un signo igual para una variable que ya se ha declarado, el programa no se compilará.
 Sólo se puede utilizar := DENTRO DE UNA FUNCIÓN, para declarar variables fuera de una función, tenemos que utilizar la palabra var !!
 
-## DECLARACIÓN DE CONSTANTES
+# DECLARACIÓN DE CONSTANTES #
 
 const HTTPStatusOK = 200
 
@@ -48,11 +48,11 @@ Para declarar un bloque de constantes que son secuenciales se utiliza iota, más
 Se pueden declarar constantes sin usarlas y no se recibirá mensaje de error. No se pueden declarar con :=
 
 
-## ERRORES DECLARACIÓN Y NO UTILIZACIÓN DE VARIABLES
+# ERRORES DECLARACIÓN Y NO UTILIZACIÓN DE VARIABLES #
 
 Cuando generamos una variable y no la usamos, GO genera un error y no una advertencia. 
 
-## TIPOS DE DATOS BÁSICOS
+# TIPOS DE DATOS BÁSICOS #
 
 En Go hay cuatro categorías de tipos de datos:
 
@@ -61,19 +61,19 @@ Tipos agregados: matrices y estructuras
 Tipos de referencia: punteros, segmentos, mapas, funciones y canales
 Tipos de interfaz: interfaz
 
-# NÚMEROS ENTEROS
+# NÚMEROS ENTEROS #
 
 La palabra clave para definir tipo entero es int. Pero están las opciones de int8, int16, int32 y int64; que son los enteros con un tamaño de 8 a 64 bits respectivamente.
 
-# NÚMEROS FLOTANTES
+# NÚMEROS FLOTANTES #
 
 Go proporciona tipos de datos para dos tamaños de números de punto flotante: float32 y float64. 
 
-# VALORES BOOLEAN
+# VALORES BOOLEAN #
 
-Sólo tienen dos valores posibles: true y false. Se declaran mediante la palabra bool. No se puede convertir un tipo booleano a 0 o 1, se debe hacer explícitamente.
+Sólo tienen dos valores posibles: true y false. Se declaran mediante la palabra bool. No se puede convertir un tipo booleano a 0 o 1, se debe hacer explícitamente. Por defecto, es false.
 
-# STRINGS
+# STRINGS #
 
 Siempre se tendrán que definir con comillas dobles ("), las simples (') se usan para los caracteres individuales y para los runes.
 
@@ -86,14 +86,14 @@ A veces será necesario utilizar caracteres de escape, como los siguientes:
 \" para comillas dobles
 \\ para barras diagonales inversas
 
-# VALORES PREDETERMINADOS PARA VARIABLES DECLARADAS PERO SIN VALOR
+# VALORES PREDETERMINADOS PARA VARIABLES DECLARADAS PERO SIN VALOR #
 
 0 para los tipos int (y todos sus subtipos, como int64)
 +0.000000e+000 para los tipos float32 y float64
 false para los tipos bool
 Un valor vacío para los tipos string
 
-# CONVERSIÓN DE TIPOS
+# CONVERSIÓN DE TIPOS #
 
 La conversión debe llevarse a cabo explícitamente. También podemos hacer uso del paquete 'strconv' para convertir un tipo string en un tipo int y viceversa.
 
@@ -114,11 +114,11 @@ func main() {
 
 El (_) que se usa como el nombre de una variable en el código anterior. En GO, el objeto _ significa que no vamos a usar el valor de esa variable y que queremos omitirlo. De lo contrario, el programa no se compilará porque necesitamos usar todas las variables declaradas. 
 
-### FUNCIONES ###
+#### FUNCIONES ####
 
 Agrupa un conjunto de instrucciones a las que se puede llamar desde otras partes de la app. 
 
-# FUNCIÓN MAIN
+# FUNCIÓN MAIN #
 
 Todos los programas ejecutables que se usan en GO tienen esta función porque es el punto inicial del programa. Sólo puede haber una función main () en el programa. 
 
@@ -143,7 +143,7 @@ Las variables están vacías pero utilizamos el _ para que no nos de error a la 
 
 !!IMPORTANTE!! La variable os.Args contiene todos los argumentos de la línea de comandos que se pasan al programa. Estos valores son de tipo string, por lo que debe convertirlos en int para sumarlos.
 
-# FUNCIONES PERSONALIZADAS
+# FUNCIONES PERSONALIZADAS #
 
 Sintaxis para crear una función:
 
@@ -183,7 +183,7 @@ func sum(number1 string, number2 string) (result int) {
     return
 }
 
-# DEVOLUCIÓN DE VARIOS VALORES EN UNA FUNCIÓN
+# DEVOLUCIÓN DE VARIOS VALORES EN UNA FUNCIÓN #
 
 package main
 
@@ -211,7 +211,7 @@ El anterior código necesita dos variables para almacenar los resultados de la f
 
 Si no necesita uno de los valores que devuelve una función, puede descartarlo asignando el valor devuelto a la variable _.
 
-# CAMBIO DE LOS VALORES DE LOS PARÁMETROS DE LA FUNCIÓN (PUNTEROS)
+# CAMBIO DE LOS VALORES DE LOS PARÁMETROS DE LA FUNCIÓN (PUNTEROS) #
 
 GO es un lenguaje de programación de "paso por valor", cada vez que se pasa un valor a una función, GO toma ese valor y crea una copia local (nueva variable en memoria), los cambios que realice en esa variable en la función no afectarán a la variable que haya enviado a la función.
 
@@ -257,5 +257,18 @@ func main() {
 
 Estas operaciones permiten trabajar directamente con la memoria y permiten que las funciones modifiquen los valores de las variables originales, lo cual es esencial para optimizar el uso de recursos y manipular estructuras de datos complejas.
 
-### PAQUETES ###
+#### PAQUETES ####
+
+Los paquetes en GO son como bibliotecas o módulo. Te permite empaquetar el código y reutilizarlo en otra parte. 
+
+# PAQUETE PRINCIPAL #
+
+El paquete predeterminado es el paquete main. Cuando se usa el paquete main, el programa genera un archivo binario y este archivo es el que se ejecuta. 
+
+Para crear un paquete tenemos que crear un directorio, añadimos un archivo en el directorio con el nombre .go
+GO no proporciona palabras clave como public o private, para indicar si se puede llamar a una variable o a una función desde fuera o dentro del paquete hay dos reglas:
+
+- Si algo quieres que sea privado, la primera letra deberá estar en minúscula.
+- Si algo quieres que sea público, la primera letra deberá estar en mayúscula.
+
 
